@@ -1,42 +1,26 @@
+import { pipe } from "ramda";
+
 // la funcionalidad es independiente de los datos!
+// tipos de datos
 interface Product {
   name: string;
   value: number;
 }
-type ProductOperation = (p: Product) => string;
-
-const someGeneralOperation = (
-  productOperation: () => ReturnType<ProductOperation>
-) =>
-  `Creator: The same creator's code has just worked with ${productOperation()}`;
-
-const concreteProductOperation =
-  (p: Product) => (productOperation: ProductOperation) => () =>
-    productOperation(p);
-
-//aplicación parcial para almacenar el producto con el que se trabaja en cada caso
-const concreteProduct1Operations = concreteProductOperation({
-  name: "Product1",
-  value: 1,
-});
-const concreteProduct2Operations = concreteProductOperation({
-  name: "Product2",
-  value: 2,
-});
-
-// funciones específicas con el producto como entrada
-const productOperation1: ProductOperation = (p) =>
+// funcionalidad
+const someOperation = (str: string) =>
+  `Creator: The same creator's code has just worked with ${str}`;
+const productTransform1 = (p) =>
   `{Result of the ConcreteProduct1} ${p.name}: ${p.value}`;
-const productOperation2: ProductOperation = (p) =>
+const productTransform2 = (p) =>
   `{Result of the ConcreteProduct2} ${p.name}: ${p.value}`;
 
-// wrapper de la operación general
+// composición para aplicar las funciones requeridas al producto
 const operation1 = () =>
-  someGeneralOperation(concreteProduct1Operations(productOperation1));
+  pipe(productTransform1, someOperation)({ name: "Product1", value: 1 });
 const operation2 = () =>
-  someGeneralOperation(concreteProduct2Operations(productOperation2));
+  pipe(productTransform2, someOperation)({ name: "Product2", value: 2 });
 
-function clientCode(someOperation: () => ReturnType<ProductOperation>) {
+function clientCode(someOperation: () => string) {
   console.log(
     "Client: I'm not aware of the creator's class, but it still works."
   );
