@@ -8,12 +8,12 @@ const divisiónNot = (dividendo: number, divisor: number): number => {
 
 type Maybe<T> = { Some: T } | { None: null };
 
-const división = (dividendo: number, divisor: number): Maybe<number> => {
+const divisiónSalidaAumentada = (dividendo: number, divisor: number): Maybe<number> => {
   if (divisor === 0) {
     return { None: null };
   }
   return {Some: dividendo / divisor};
 };
 
-división(6, 2); // Some 3
-división(6, 0); // None
+divisiónSalidaAumentada(6, 2); // Some 3
+divisiónSalidaAumentada(6, 0); // None
