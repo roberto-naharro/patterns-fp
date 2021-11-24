@@ -4,12 +4,9 @@ const damePrimeraPalabra = (frase: string) => frase.split(" ")[0];
 
 const cuentaAes = (palabra: string) =>
   palabra
+    .toLowerCase()
     .split("")
-    .reduce(
-      (count: number, char: string) =>
-        char.toLowerCase() === "a" ? count + 1 : count,
-      0
-    );
+    .filter((a) => a === "a").length;
 
 // composición
 const cuentaAesPrimeraPalabra = pipe(damePrimeraPalabra, cuentaAes);

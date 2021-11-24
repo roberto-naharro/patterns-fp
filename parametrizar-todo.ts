@@ -1,6 +1,5 @@
 const imprimeLista = <T>(lista: Array<T>, acción: (elem: T) => void) => {
   for (const i of lista) {
-    //comportamiento hardcodeado, uff...
     acción(i);
   }
 }
