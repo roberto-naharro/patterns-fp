@@ -1,4 +1,5 @@
 type Operation = () => string;
+
 const operation = () => "ConcreteComponent";
 
 const concreteDecoratorA =
