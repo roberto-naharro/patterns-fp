@@ -2,7 +2,7 @@ import { pipe } from "ramda";
 
 // la funcionalidad es independiente de los datos!
 // tipos de datos
-interface Product {
+type Product = {
   name: string;
   value: number;
 }
