@@ -1,24 +1,3 @@
-abstract class Creator {
-  public abstract factoryMethod(): Product;
-
-  public someOperation(): string {
-    const product = this.factoryMethod();
-    return `Creator: The same creator's code has just worked with ${product.operation()}`;
-  }
-}
-
-class ConcreteCreator1 extends Creator {
-  public factoryMethod(): Product {
-    return new ConcreteProduct1();
-  }
-}
-
-class ConcreteCreator2 extends Creator {
-  public factoryMethod(): Product {
-    return new ConcreteProduct2();
-  }
-}
-
 interface Product {
   name: string;
   value: number;
@@ -38,6 +17,27 @@ class ConcreteProduct2 implements Product {
   value = 2;
   public operation(): string {
     return `{Result of the ConcreteProduct2} ${this.name}: ${this.value}`;
+  }
+}
+
+abstract class Creator {
+  public abstract factoryMethod(): Product;
+
+  public someOperation(): string {
+    const product = this.factoryMethod();
+    return `Creator: The same creator's code has just worked with ${product.operation()}`;
+  }
+}
+
+class ConcreteCreator1 extends Creator {
+  public factoryMethod(): Product {
+    return new ConcreteProduct1();
+  }
+}
+
+class ConcreteCreator2 extends Creator {
+  public factoryMethod(): Product {
+    return new ConcreteProduct2();
   }
 }
 
