@@ -25,3 +25,5 @@ const decorator1 = concreteDecoratorA(operation);
 const decorator2 = concreteDecoratorB(decorator1);
 console.log("Client: Now I've got a decorated component:");
 clientCode(decorator2);
+
+export {};

@@ -34,3 +34,5 @@ console.log("");
 
 console.log("App: Launched with the ConcreteCreator2.");
 clientCode(operation2);
+
+export {};

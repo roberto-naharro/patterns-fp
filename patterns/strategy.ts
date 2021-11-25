@@ -39,3 +39,5 @@ console.log("");
 const context2 = new Context(new ConcreteStrategyB());
 console.log("Client: Strategy is set to reverse sorting.");
 context2.doSomeBusinessLogic();
+
+export {};

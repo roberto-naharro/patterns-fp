@@ -24,3 +24,5 @@ const decorator1 = pipe(operation, concreteDecoratorA);
 const decorator2 = pipe(decorator1, concreteDecoratorB);
 console.log("Client: Now I've got a decorated component:");
 clientCode(decorator2);
+
+export {};

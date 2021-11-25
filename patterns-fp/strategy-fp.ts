@@ -21,3 +21,5 @@ console.log("");
 const doSomeBusinessLogicB = doSomeBusinessLogic(doAlgorithmB);
 console.log("Client: Strategy is set to reverse sorting.");
 doSomeBusinessLogicB();
+
+export {};
