@@ -10,9 +10,9 @@ interface Product {
 const someOperation = (str: string) =>
   `Creator: The same creator's code has just worked with ${str}`;
 
-const productTransform1 = (p) =>
+const productTransform1 = (p: Product) =>
   `{Result of the ConcreteProduct1} ${p.name}: ${p.value}`;
-const productTransform2 = (p) =>
+const productTransform2 = (p: Product) =>
   `{Result of the ConcreteProduct2} ${p.name}: ${p.value}`;
 
 // composición + aplicación parcial para aplicar las funciones requeridas al producto
